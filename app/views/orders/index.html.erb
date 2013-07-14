@@ -1,0 +1,18 @@
+<h1>Мои заказы</h1>
+
+<% @orders.each do |order| %>
+
+    <h3>Заказ №<%= order.id%></h3>
+    <p>Сумма заказа: <%= order.total %> руб.</p>
+
+    <table class="table">
+    <% order.item_orders.each do |io| %>
+        <tr>
+          <td><%= io.item.name %></td>
+          <td><%= io.quantity %></td>
+          <td><%= io.price %> руб.</td>
+        </tr>
+    <% end %>
+    </table>
+
+<% end %>

@@ -1,13 +1,11 @@
 Shop2::Application.routes.draw do
 
-  get 'test/something'
-
   devise_for :users
   resources :categories
   resources :items
   resources :comments, :only => [:create, :destroy]
   resources :item_users, only: [:index, :create, :destroy]
-  get 'item_users/test'
+  resources :orders, only: [:index, :create]
 
   get 'legal/terms'
   get 'legal/privacy'

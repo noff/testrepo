@@ -1,19 +1,29 @@
 <h1>Корзина</h1>
 
-<table class="table">
-  <tr>
-    <th>Название товара</th>
-    <th>Цена</th>
-    <th>Кол-во</th>
-    <th></th>
-  </tr>
-  <% @item_users.each do |t| %>
-     <tr>
-       <td><%= t.item.name %></td>
-       <td><%= t.item.price %> руб.</td>
-       <td><%= t.quantity %></td>
-       <td><%= link_to 'удалить', item_user_path(:id => t.id), method: :delete %></td>
-     </tr>
-  <% end %>
-</table>
+<% if @item_users.any? %>
+
+    <table class="table">
+      <tr>
+        <th>Название товара</th>
+        <th>Цена</th>
+        <th>Кол-во</th>
+        <th></th>
+      </tr>
+      <% @item_users.each do |t| %>
+         <tr>
+           <td><%= t.item.name %></td>
+           <td><%= t.item.price %> руб.</td>
+           <td><%= t.quantity %></td>
+           <td><%= link_to 'удалить', item_user_path(:id => t.id), method: :delete %></td>
+         </tr>
+      <% end %>
+    </table>
+
+    <%= link_to 'Оформить заказ', orders_path, method: :post, class: 'btn btn-success btn-large' %>
+
+<% else %>
+
+    <p>У вас в корзине ничего нет, сходите что-нибудь купите.</p>
+
+<% end %>
 

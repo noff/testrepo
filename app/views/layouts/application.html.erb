@@ -47,7 +47,8 @@
         <% if signed_in? %>
             Здравствуйте, мы вас знаем.
             Ваш e-mail: <%= current_user.email %>.
-            <%= link_to 'Корзина', item_users_path %>
+            <%= link_to 'Корзина', item_users_path, class: 'btn' %>
+            <%= link_to 'Заказы', orders_path, class: 'btn' %>
             <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
         <% else %>
             Вы гость и нужно авторизоваться.

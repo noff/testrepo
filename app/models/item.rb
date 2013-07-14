@@ -9,14 +9,6 @@ class Item < ActiveRecord::Base
   belongs_to :category
   has_many :comments, :dependent => :nullify
   has_many :item_users, dependent: :destroy
-
-
-
-  def self.sss(s)
-    r = s * s + 3
-    return r
-  end
-
-
+  has_many :item_orders, dependent: :destroy
 
 end
