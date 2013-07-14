@@ -10,4 +10,13 @@ class Item < ActiveRecord::Base
   has_many :comments, :dependent => :nullify
   has_many :item_users, dependent: :destroy
 
+
+
+  def self.sss(s)
+    r = s * s + 3
+    return r
+  end
+
+
+
 end

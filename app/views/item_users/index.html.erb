@@ -11,8 +11,9 @@
      <tr>
        <td><%= t.item.name %></td>
        <td><%= t.item.price %> руб.</td>
-       <td>1</td>
-       <td><%= link_to 'удалить', t, method: :delete %></td>
+       <td><%= t.quantity %></td>
+       <td><%= link_to 'удалить', item_user_path(:id => t.id), method: :delete %></td>
      </tr>
   <% end %>
 </table>
+

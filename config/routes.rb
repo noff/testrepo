@@ -1,5 +1,7 @@
 Shop2::Application.routes.draw do
 
+  get 'test/something'
+
   devise_for :users
   resources :categories
   resources :items
