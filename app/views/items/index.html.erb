@@ -24,10 +24,14 @@
         <% end %>
       </td>
       <td>
-        <%= link_to 'Редактировать', edit_item_path(item) %>
+        <% if signed_in? %>
+            <%= link_to 'Редактировать', edit_item_path(item) %>
+        <% end %>
       </td>
       <td>
-        <%= link_to 'Удалить', item, method: :delete, confirm: 'Точно удалить?' %>
+        <% if signed_in? %>
+            <%= link_to 'Удалить', item, method: :delete, confirm: 'Точно удалить?' %>
+        <% end %>
       </td>
     </tr>
   <% end %>
@@ -35,5 +39,7 @@
 
 
 <div>
-  <%= link_to "Создать новый товар", new_item_path %>
+  <% if signed_in? %>
+    <%= link_to "Создать новый товар", new_item_path %>
+  <% end %>
 </div>
