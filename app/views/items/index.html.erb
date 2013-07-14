@@ -33,6 +33,11 @@
             <%= link_to 'Удалить', item, method: :delete, confirm: 'Точно удалить?' %>
         <% end %>
       </td>
+      <td>
+        <% if signed_in? %>
+            <%= link_to 'Добавить в корзину', item_users_path(item_id: item.id), method: :post %>
+        <% end %>
+      </td>
     </tr>
   <% end %>
 </table>

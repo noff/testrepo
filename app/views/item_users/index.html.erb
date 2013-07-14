@@ -1,0 +1,18 @@
+<h1>Корзина</h1>
+
+<table class="table">
+  <tr>
+    <th>Название товара</th>
+    <th>Цена</th>
+    <th>Кол-во</th>
+    <th></th>
+  </tr>
+  <% @item_users.each do |t| %>
+     <tr>
+       <td><%= t.item.name %></td>
+       <td><%= t.item.price %> руб.</td>
+       <td>1</td>
+       <td><%= link_to 'удалить', t, method: :delete %></td>
+     </tr>
+  <% end %>
+</table>

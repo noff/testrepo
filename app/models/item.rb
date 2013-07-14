@@ -8,5 +8,6 @@ class Item < ActiveRecord::Base
 
   belongs_to :category
   has_many :comments, :dependent => :nullify
+  has_many :item_users, dependent: :destroy
 
 end

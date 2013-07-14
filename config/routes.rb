@@ -4,6 +4,8 @@ Shop2::Application.routes.draw do
   resources :categories
   resources :items
   resources :comments, :only => [:create, :destroy]
+  resources :item_users, only: [:index, :create, :destroy]
+  get 'item_users/test'
 
   get 'legal/terms'
   get 'legal/privacy'
