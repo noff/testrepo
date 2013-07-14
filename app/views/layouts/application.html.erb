@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Магазин телефонов</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <%= link_to image_tag('1373132372_facebook_circle_color.png'), root_path, :class => 'brand' %>
+    <ul class="nav">
+      <li><%= link_to 'О проекте', about_path %></li>
+      <li><%= link_to 'Команда', team_path %></li>
+      <li><%= link_to 'Контакты', contacts_path %></li>
+      <li><%= link_to 'Категории', categories_path %></li>
+      <li><%= link_to 'Товары', items_path %></li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span8">
+
+      <% if notice %>
+        <p class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= notice %>
+        </p>
+      <% end %>
+      <% if alert %>
+        <p class="alert">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= alert %>
+        </p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+    <div class="span4 sidebar">
+      <div class="sidebar-inner">
+        <% if signed_in? %>
+            Здравствуйте, мы вас знаем.
+            Ваш e-mail: <%= current_user.email %>.
+            <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+        <% else %>
+            Вы гость и нужно авторизоваться.
+            <%= link_to 'Войти', new_user_session_path %>
+            <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <%= link_to 'Terms', legal_terms_path %>
+  <%= link_to 'Privacy', legal_privacy_path %>
+</div>
+
+</body>
+</html>
