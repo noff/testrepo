@@ -63,6 +63,6 @@ Shop2::Application.configure do
 
   config.eager_load = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'obscure-stream-2453.herokuapp.com' }
 
 end
