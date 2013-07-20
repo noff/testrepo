@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 
 gem 'sqlite3', :group => :development
 gem 'pg', :group => :production
-
+gem "warden", "~> 1.2.3"
 gem 'simple_form'
 
 gem 'devise', '3.0.0rc'
