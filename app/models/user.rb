@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :item_users, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => '/assets/missing.png'
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => '/images/missing.png'
 
   # Возвращает полное имя пользователя в зависимости от того, заполнены
   # ли у него какие-то поля или нет.
