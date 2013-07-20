@@ -10,6 +10,7 @@ gem 'sqlite3', :group => :development
 gem 'pg', :group => :production
 gem "warden", "~> 1.2.3"
 gem 'simple_form'
+gem 'rails_12factor'
 
 gem 'devise', '3.0.0rc'
 
