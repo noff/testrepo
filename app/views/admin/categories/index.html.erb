@@ -1,0 +1,18 @@
+<h1>Категории</h1>
+
+<table class="table">
+  <tr>
+    <th>Название</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @categories.each do |category| %>
+      <tr>
+        <td><%= link_to category.name, category %> <%- </td>
+        <td><%= link_to 'edit', edit_admin_category_path(category) %></td>
+        <td><%= link_to 'delete', [:admin, category], method: :delete, confirm: 'Точно?' %></td>
+      </tr>
+  <% end %>
+</table>
+
+<div><%= link_to "Создать категорию", new_admin_category_path, :class => 'btn' %></div>

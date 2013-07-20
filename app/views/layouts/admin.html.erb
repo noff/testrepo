@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Админка</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li><%= link_to 'Категории', admin_categories_path %></li>
+      <li><%= link_to 'Товары', admin_items_path %></li>
+      <li><%= link_to 'Пользователи', admin_users_path %></li>
+      <li><%= link_to 'Заказы', admin_orders_path %></li>
+    </ul>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="span8">
+
+      <% if notice %>
+        <p class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= notice %>
+        </p>
+      <% end %>
+      <% if alert %>
+        <p class="alert">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= alert %>
+        </p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+    <div class="span4 sidebar">
+      <div class="sidebar-inner">
+        Тут будут кнопки создания чего-нибудь или сервисные кнопки
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

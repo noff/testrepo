@@ -1,0 +1,24 @@
+<h1>Товары</h1>
+
+<table class="table">
+    <tr>
+      <th>ID</th>
+      <th>Наименование</th>
+      <th>Категория</th>
+      <th>Цена</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= link_to item.name, item, target: '_blank' %></td>
+        <td><%= item.category.name unless item.category.nil? %></td>
+        <td><%= item.price %> руб.</td>
+        <td><%= link_to 'edit', edit_admin_item_path(item) %></td>
+        <td><%= link_to 'delete', [:admin, item], method: :delete, confirm: 'Точно?' %></td>
+      </tr>
+    <% end %>
+</table>
+
+<div><%= link_to "Создать новый товар", new_admin_item_path, class: 'btn' %></div>

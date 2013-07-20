@@ -1,20 +1,6 @@
 <h1>Товары</h1>
 
-<% @items.each do |item| %>
-  <div class="item-element">
-    <div class="photo"><%= link_to image_tag(item.photo.url(:thumb)), item %></div>
-    <div class="name"><%= link_to item.name, item %></div>
-    <div class="price"><%= item.price %> руб.</div>
-    <% if signed_in? %>
-        <div class="buy">
-          <%= link_to 'В корзину', item_users_path(item_id: item.id), method: :post, class: 'btn' %>
-        </div>
-    <% end %>
-  </div>
+<% @items.each do |i| %>
+    <%= render 'element', item: i %>
 <% end %>
 
-<% if signed_in? %>
-    <div class="add-item-control">
-        <%= link_to "Создать новый товар", new_item_path, class: 'btn' %>
-    </div>
-<% end %>

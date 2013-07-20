@@ -3,9 +3,7 @@
 <% @categories.each do |category| %>
   <div class="category-element">
     <%= link_to category.name, category %>
+    (<%= category.items.count %>)
   </div>
 <% end %>
 
-<% if signed_in? %>
-    <div class="category-control-add"><%= link_to "Создать категорию", new_category_path, :class => 'btn' %></div>
-<% end %>

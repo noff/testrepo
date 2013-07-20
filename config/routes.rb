@@ -1,11 +1,20 @@
 Shop2::Application.routes.draw do
 
   devise_for :users
-  resources :categories
-  resources :items
+  resources :categories, only: [:index, :show]
+  resources :items, only: [:index, :show]
   resources :comments, :only => [:create, :destroy]
   resources :item_users, only: [:index, :create, :destroy]
   resources :orders, only: [:index, :create]
+
+  # Админка
+  namespace :admin do
+    get '/' => 'index#index'                  # V
+    resources :categories, except: [:show]
+    resources :items, except: [:show]
+    resources :users, only: [:index]          # V
+    resources :orders, only: [:index]         # V
+  end
 
   get 'profile/show'
   get 'profile/edit'

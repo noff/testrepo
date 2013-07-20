@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
     # Если есть и фамилия и имя, возвращаем имя + первая буква фамилии + точка
     if !first_name.blank? && !last_name.blank?
-      return first_name + ' ' + last_name[0] + '.'
+      return first_name + ' ' + last_name
     end
 
     # Если есть только имя, возвращаем имя
