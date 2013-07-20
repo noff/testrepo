@@ -1,24 +1,27 @@
 <h1><%= @item.name %></h1>
-<div class="photo"><%= image_tag @item.photo.url(:medium)%></div>
 
-<div>
-  <%= @item.description %>
+<div class="item-info">
+  <div class="photo"><%= image_tag @item.photo.url(:medium)%></div>
+  <div class="info">
+    <% if @item.category %>
+        <div class="category"><%= @item.category.name %></div>
+    <% end %>
+    <div class="description"><%= @item.description %></div>
+    <div class="price">Цена: <%= @item.price %> руб.</div>
+    <div class="buy"><%= link_to 'В корзину', item_users_path(item_id: @item.id), method: :post, class: 'btn btn-large btn-success' %></div>
+  </div>
 </div>
-<div>Цена: <%= @item.price %> руб.</div>
-<% if @item.category %>
-    <div><%= @item.category.name %></div>
-<% end %>
 
-<h2>Обсуждение</h2>
+<h2 class="clear">Обсуждение</h2>
 <%= render 'comments/form' %>
 
 <% @item.comments.each do |c| %>
-    <div>
-      <%= c.created_at %>
-      <%= link_to 'delete', c, method: :delete, confirm: 'Точно удалить?' %>
-    </div>
-    <div>
-      <%= c.message %>
+    <div class="comment-element">
+        <div class="date">
+          <%= c.created_at.strftime('%d.%m.%Y %H:%M') %>
+          <%= link_to 'delete', c, method: :delete, confirm: 'Точно удалить?' %>
+        </div>
+        <div class="message"><%= c.message %></div>
     </div>
 <% end %>
 

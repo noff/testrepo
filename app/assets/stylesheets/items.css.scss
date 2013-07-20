@@ -1,3 +1,78 @@
-// Place all the styles related to the Items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.item-element {
+  border: 1px solid #000000; // черная граница вокруг блока
+  width: 100px; // ширина блока
+  height: 140px; // высота
+  float: left; // плавают друг за другом
+  padding: 20px; // внутренний отступ
+  margin: 0 20px 20px 0; // внешний отступ
+  overflow: hidden; // что не помещается, не отображаем
+  .photo {
+    text-align: center; // выравниваем содержимое по центру
+    height: 50px;
+    overflow: hidden;
+    img {
+      width: 50px; // ширина картинки 50px
+    }
+  }
+  .name {
+    text-align: center; // выравниваем содержимое по центру
+    font-weight: bold; // жирный шрифт
+    font-size: 115%; // размер
+    margin-bottom: 10px; // отступ снизу
+    height: 20px;
+    overflow: hidden;
+  }
+  .price {
+    color: green; // зеленый шрифт
+    text-align: center; // выравниваем содержимое по центру
+    margin-bottom: 5px; // отступ снизу
+  }
+  .buy {
+    text-align: center; // выравниваем содержимое по центру
+  }
+}
+
+.add-item-control {
+  clear: both;
+}
+
+.item-info {
+  .photo {
+    width: 300px;
+    height: 300px;
+    float: right;
+    margin-right: 20px;
+    text-align: right;
+  }
+  .info {
+    float: left;
+    width: 400px;
+    .description {
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: 125%;
+      color: green;
+      margin-bottom: 10px;
+    }
+    .category {
+      color: gray;
+      margin-bottom: 10px;
+    }
+    .buy { }
+  }
+}
+
+h2.clear {
+  clear: both;
+}
+
+.comment-element {
+  margin-bottom: 20px;
+  .date {
+    color: gray;
+    a {color: gray;}
+  }
+  .message {
+  }
+}

@@ -1,36 +1,11 @@
 <h1>Категории</h1>
 
-<table class="table">
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @categories.each do |category| %>
-  <tr>
-    <td>
-      <div><strong><%= category.name %></strong></div>
-      <div><%= category.description %></div>
-    </td>
-    <td><%= link_to 'Просмотр', category %></td>
-    <td>
-      <% if signed_in? %>
-        <%= link_to 'Редактировать', edit_category_path(category) %>
-      <% end %>
-    </td>
-    <td>
-      <% if signed_in? %>
-        <%= link_to 'Удалить', category, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </td>
-  </tr>
+  <div class="category-element">
+    <%= link_to category.name, category %>
+  </div>
 <% end %>
-</table>
-
-<br />
 
 <% if signed_in? %>
-    <%= link_to "Создать категорию", new_category_path, :class => 'btn' %>
+    <div class="category-control-add"><%= link_to "Создать категорию", new_category_path, :class => 'btn' %></div>
 <% end %>
