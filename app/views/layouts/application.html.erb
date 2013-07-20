@@ -45,8 +45,9 @@
     <div class="span4 sidebar">
       <div class="sidebar-inner">
         <% if signed_in? %>
-            Здравствуйте, мы вас знаем.
-            Ваш e-mail: <%= current_user.email %>.
+            <p>Здравствуйте, <%= link_to current_user.full_name, profile_show_path %></p>
+
+
             <%= link_to 'Корзина', item_users_path, class: 'btn' %>
             <%= link_to 'Заказы', orders_path, class: 'btn' %>
             <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>

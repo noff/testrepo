@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
 
   # POST: Процесс создания
   def create
-    @item = Item.new(params[:item].permit(:name, :description, :price, :category_id))
+    @item = Item.new(params[:item].permit(:name, :description, :price, :category_id, :photo))
     if @item.save
       redirect_to items_path, notice: 'Item was successfully created.'
     else
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   # PUT: Процесс обновления
   def update
     @item = Item.find(params[:id])
-    data = params[:item].permit(:name, :description, :price, :category_id)
+    data = params[:item].permit(:name, :description, :price, :category_id, :photo)
     success = @item.update_attributes data
     if success
       redirect_to @item, notice: 'Item was successfully updated.'

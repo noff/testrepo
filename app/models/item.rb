@@ -11,4 +11,6 @@ class Item < ActiveRecord::Base
   has_many :item_users, dependent: :destroy
   has_many :item_orders, dependent: :destroy
 
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "60x60>" }, :default_url => '/assets/missing-item.png'
+
 end

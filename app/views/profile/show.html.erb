@@ -1,0 +1,12 @@
+<h1>Мой профиль</h1>
+
+<div><%= image_tag current_user.avatar.url(:thumb) %></div>
+
+<p>Мой емейл: <%= current_user.email %></p>
+<p>
+  Имя:
+  <%= current_user.first_name %>
+  <%= current_user.last_name %>
+</p>
+
+<p><%= link_to 'Редактировать профиль', profile_edit_path, class: 'btn' %></p>

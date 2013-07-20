@@ -3,6 +3,7 @@
 <table class="table">
   <tr>
     <th>ID</th>
+    <th></th>
     <th>Название</th>
     <th>Описание</th>
     <th>Цена</th>
@@ -13,6 +14,7 @@
   <% @items.each do |item| %>
     <tr>
       <td><%= item.id %></td>
+      <td><%= image_tag item.photo.url(:thumb) %></td>
       <td><%= link_to item.name, item %></td>
       <td><%= item.description %></td>
       <td><%= item.price %> руб.</td>

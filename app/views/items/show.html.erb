@@ -1,4 +1,6 @@
 <h1><%= @item.name %></h1>
+<div class="photo"><%= image_tag @item.photo.url(:medium)%></div>
+
 <div>
   <%= @item.description %>
 </div>

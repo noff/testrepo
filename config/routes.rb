@@ -7,6 +7,10 @@ Shop2::Application.routes.draw do
   resources :item_users, only: [:index, :create, :destroy]
   resources :orders, only: [:index, :create]
 
+  get 'profile/show'
+  get 'profile/edit'
+  put 'profile/save'
+
   get 'legal/terms'
   get 'legal/privacy'
 

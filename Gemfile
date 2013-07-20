@@ -7,10 +7,13 @@ gem 'rails', '4.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', :group => :development
-gem 'pg', :group => :production
-gem "warden", "~> 1.2.3"
+gem 'pg', :group => :production # Чтобы работало на Heroku
+
 gem 'simple_form'
-gem 'rails_12factor'
+
+gem "warden", "~> 1.2.3" # Чтобы запускалось на Heroku, потому что 1.2.2 не существует
+
+gem 'rails_12factor' # Чтобы компилировались стили, картинки и скрипты для Rails 4 на Heroku
 
 gem 'devise', '3.0.0rc'
 
@@ -20,6 +23,8 @@ gem "twitter-bootstrap-rails"
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+
+gem "paperclip", git: 'git://github.com/thoughtbot/paperclip.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
