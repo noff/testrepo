@@ -7,13 +7,13 @@
 
     <p>
       Статус:
-      <% if order.paid? %>
+      <% if order.paid == true %>
         оплачен
       <% else %>
           <%= payment_service_for order.id, ROBOKASSA_LOGIN,
-                                  :amount =>  order.total,
-                                  :service => :robokassa,
-                                  :secret => ROBOKASSA_PASS_1 do |s| %>
+                                  amount:  order.total,
+                                  service: :robokassa,
+                                  secret: ROBOKASSA_PASS_1 do |s| %>
               <%= submit_tag "Оплатить" %>
           <% end %>
       <% end %>

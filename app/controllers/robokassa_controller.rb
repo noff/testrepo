@@ -17,9 +17,7 @@ class RobokassaController < ApplicationController
       order = Order.find(notification.item_id)
 
       # Отмечаем как оплаченный
-      Rails.logger.warn 'Marking as paid'
       order.mark_paid
-      Rails.logger.warn 'Marked as paid'
 
       # Сообщаем робокассе, что все хорошо
       render :text => notification.success_response
@@ -32,6 +30,10 @@ class RobokassaController < ApplicationController
     end
 
   end
+
+
+
+
 
   # Вроде удалось оплатить. но деньги еще не пришли
   def success
