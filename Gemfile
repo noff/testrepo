@@ -21,6 +21,9 @@ gem "letter_opener", :group => :development
 
 gem "twitter-bootstrap-rails"
 
+gem 'activemerchant', :require => 'active_merchant'
+
+
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 

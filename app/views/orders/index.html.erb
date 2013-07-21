@@ -5,6 +5,20 @@
     <h3>Заказ №<%= order.id%></h3>
     <p>Сумма заказа: <%= order.total %> руб.</p>
 
+    <p>
+      Статус:
+      <% if order.paid? %>
+        оплачен
+      <% else %>
+          <%= payment_service_for order.id, ROBOKASSA_LOGIN,
+                                  :amount =>  order.total,
+                                  :service => :robokassa,
+                                  :secret => ROBOKASSA_PASS_1 do |s| %>
+              <%= submit_tag "Оплатить" %>
+          <% end %>
+      <% end %>
+    </p>
+
     <table class="table">
     <% order.item_orders.each do |io| %>
         <tr>

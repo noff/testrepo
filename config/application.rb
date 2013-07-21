@@ -54,3 +54,7 @@ module Shop2
     config.assets.version = '1.0'
   end
 end
+
+ROBOKASSA_LOGIN = 'shop2school'
+ROBOKASSA_PASS_1 = '1q2w3e4r5t'
+ROBOKASSA_PASS_2 = 'qa1qws2wed3e'

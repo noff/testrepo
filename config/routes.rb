@@ -16,6 +16,12 @@ Shop2::Application.routes.draw do
     resources :orders, only: [:index]         # V
   end
 
+  scope 'robokassa' do
+    post 'paid'    => 'robokassa#paid',    :as => :robokassa_paid # to handle Robokassa push request
+    get 'success' => 'robokassa#success', :as => :robokassa_success # to handle Robokassa success redirect
+    get 'fail'    => 'robokassa#fail',    :as => :robokassa_fail # to handle Robokassa fail redirect
+  end
+
   get 'profile/show'
   get 'profile/edit'
   put 'profile/save'
